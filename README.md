@@ -1,4 +1,4 @@
-project name:
+name:
 "ITR-MESS"
 
 description:
