@@ -48,7 +48,9 @@ class HomePage extends StatelessWidget{
 class RoomsList extends StatelessWidget {
   final rooms = <ChatRoom>[
     ChatRoom(title:'chat 1',avatar: Icons.camera ,description:'ыыыааыы'),
-    ChatRoom(title:'chat 2',avatar: Icons.accessibility_new_rounded ,description:'ооооееемм')
+    ChatRoom(title:'chat 2',avatar: Icons.camera ,description:'ыыыааыы'),
+    ChatRoom(title:'chat 3',avatar: Icons.camera ,description:'ыыыааыы'),
+    ChatRoom(title:'chat 4',avatar: Icons.accessibility_new_rounded ,description:'ооооееемм')
   ];
   @override
   Widget build(BuildContext context) {
@@ -56,12 +58,19 @@ class RoomsList extends StatelessWidget {
       padding: EdgeInsets.only(top: 8),
       child:Container(
         child: GridView.builder(
-            itemCount: rooms.length,
+            itemCount: rooms.length+1,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               childAspectRatio: 10.0 / 10.0,
-              crossAxisCount: 2,
+              crossAxisCount: 3,
             ),
             itemBuilder: (context, i) {
+              if (i==rooms.length){
+               return Icon(
+                 Icons.add_comment_outlined,
+                 size: 100,
+               );
+              }
+
               return Card(
                   semanticContainer: true,
                   shape: RoundedRectangleBorder(
@@ -93,7 +102,9 @@ class RoomsList extends StatelessWidget {
                   )
                 )
               );
+
             }
+
         )
       )
     );
