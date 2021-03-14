@@ -25,8 +25,18 @@ class HomePage extends StatelessWidget{
       child: Scaffold(
         backgroundColor: Theme.of(context).primaryColor,
         appBar: AppBar(
-          title: Text('Role Play chats'),
-          leading: Icon(Icons.messenger),
+          actionsIconTheme: IconThemeData(
+              size: 40.0,
+              color: Colors.black,
+              opacity: 10.0
+          ),
+          title: Text('Role Play chats',style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),),
+        actions: <Widget>[
+          Icon(Icons.settings),
+          Icon(Icons.account_box)
+        ],
+        //  leading: Icon(Icons.messenger),
+
         ),
         body: RoomsList(),
       ),
@@ -70,7 +80,7 @@ class RoomsList extends StatelessWidget {
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                   image: AssetImage('./lib/assets/no-image.png'),
-                                  fit: BoxFit.fill),
+                                  fit: BoxFit.contain),
                             ),
                           )),
                       Padding(
